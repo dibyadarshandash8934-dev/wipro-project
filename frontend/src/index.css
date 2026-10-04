@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* React Flow custom styles */
+.react-flow__node {
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.react-flow__node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.react-flow__node-selected {
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px white;
+}
+
+.dark .react-flow__node-selected {
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #1e293b;
+}
+
+/* Focus visible for accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Table row hover */
+tbody tr {
+  @apply transition-colors duration-100;
+}
+
+/* Button loading spinner */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Input focus styles */
+input:focus,
+select:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900;
+}
+
+/* Form validation */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+/* Card shadows */
+.shadow-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .shadow-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* React Flow background pattern */
+.react-flow__background {
+  background-color: #f1f5f9;
+}
+
+.dark .react-flow__background {
+  background-color: #0f172a;
+}
+
+/* MiniMap styles */
+.react-flow__minimap {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .react-flow__minimap {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
